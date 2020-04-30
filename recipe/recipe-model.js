@@ -19,7 +19,7 @@ function getInstructions(recipe_id) {
     return db("recipes as r")
            .join("recipe_steps as rs", "r.id", "rs.recipe_id")        
            .where("r.id", recipe_id)
-           .select("step_order as step","step_detail as steps")
+           .select("step_order as step","step_detail as instructions")
            .orderBy("step_order","asc")
 }
 
