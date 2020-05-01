@@ -21,16 +21,19 @@ exports.up = async function(knex) {
          table.integer("recipe_id")
               .references("id")
               .inTable("recipes")
-              .onDelete("CASCADE"),
+              .onDelete("CASCADE")
+			  .onUpdate('CASCADE'),
          table.integer("ingredient_id")
               .references("id")
               .inTable("ingredients")
-              .onDelete("CASCADE"),
+              .onDelete("CASCADE")
+			  .onUpdate('CASCADE'),
          table.float("quantity").notNull(),
          table.integer("unit_id")
               .references("id")
               .inTable("units")
-              .onDelete("CASCADE"),
+              .onDelete("CASCADE")
+			  .onUpdate('CASCADE'),
          table.primary(["recipe_id","ingredient_id"])
     }) 
 
@@ -39,7 +42,8 @@ exports.up = async function(knex) {
          table.integer("recipe_id")
               .references("id")
               .inTable("recipes")
-              .onDelete("CASCADE"),
+              .onDelete("CASCADE")
+			  .onUpdate('CASCADE'),
          table.text("step_detail").notNull()
          table.text("step_order").default(null)
     })
